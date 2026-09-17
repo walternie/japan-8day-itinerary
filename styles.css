@@ -1,0 +1,462 @@
+:root {
+  color-scheme: light;
+  --bg: #f7f4ef;
+  --surface: #ffffff;
+  --ink: #1c1a17;
+  --muted: #5c574f;
+  --line: #d8d2c8;
+  --accent: #1f3a2e;
+  --accent-soft: #e4ebe7;
+  --focus: #0b57d0;
+  --max: 68rem;
+  --gap: 1rem;
+  --radius: 0;
+  font-family: "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+    sans-serif;
+  line-height: 1.55;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: var(--line);
+}
+
+a {
+  color: var(--accent);
+}
+
+a:focus-visible,
+button:focus-visible,
+.day-tab:focus-visible,
+.roadbook a:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 0.75rem;
+  top: -3rem;
+  background: var(--surface);
+  color: var(--ink);
+  padding: 0.5rem 0.75rem;
+  z-index: 10;
+}
+
+.skip-link:focus {
+  top: 0.75rem;
+}
+
+.site-header,
+.site-nav,
+main,
+.site-footer {
+  width: min(100% - 1.5rem, var(--max));
+  margin-inline: auto;
+}
+
+.site-header {
+  display: grid;
+  gap: 1rem;
+  padding: 1.5rem 0 1rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.35rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.site-header h1,
+.panel-header h2,
+.day-header h2,
+.step-content h3,
+.booking-card h3,
+.task-card h3,
+.fallback-card h3 {
+  margin: 0 0 0.5rem;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.lede,
+.panel-header p,
+.day-summary,
+.share-status {
+  margin: 0;
+  color: var(--muted);
+}
+
+.header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.button,
+.day-tab {
+  appearance: none;
+  border: 1px solid var(--accent);
+  background: var(--surface);
+  color: var(--accent);
+  padding: 0.55rem 0.9rem;
+  font: inherit;
+  cursor: pointer;
+}
+
+.button:hover,
+.day-tab:hover,
+.day-tab.is-active {
+  background: var(--accent);
+  color: #fff;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  padding: 0.75rem 0 1.25rem;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  z-index: 5;
+}
+
+.site-nav a {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.panel {
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.panel-header {
+  margin-bottom: 1rem;
+}
+
+.day-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.day-tab {
+  display: grid;
+  gap: 0.15rem;
+  text-align: left;
+}
+
+.day-tab span {
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
+
+.day-panel[hidden] {
+  display: none;
+}
+
+.day-header,
+.step-card,
+.booking-card,
+.task-card,
+.fallback-card,
+.noscript-days article {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 1rem;
+}
+
+.day-header {
+  margin-bottom: 1rem;
+}
+
+.day-facts {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0.85rem 0;
+}
+
+.day-facts div {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.day-facts dt {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.day-facts dd {
+  margin: 0;
+}
+
+.roadbook {
+  margin-bottom: 1rem;
+}
+
+.roadbook ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.roadbook a {
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+  text-decoration: none;
+  color: inherit;
+  padding: 0.45rem 0.55rem;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.roadbook a span {
+  flex: 0 0 1.5rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.steps,
+.booking-list,
+.fallback-list,
+.task-list,
+.noscript-days {
+  display: grid;
+  gap: var(--gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step-card {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.step-media {
+  margin: 0;
+}
+
+.step-time {
+  margin: 0 0 0.35rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.step-content p {
+  margin: 0 0 0.75rem;
+}
+
+.step-meta,
+.step-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.step-tag {
+  display: inline-block;
+  padding: 0.2rem 0.45rem;
+  border: 1px solid var(--line);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.85rem;
+}
+
+.map-link {
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  font-weight: 600;
+}
+
+.booking-heading,
+.task-card > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.status,
+.priority,
+.task-when {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.booking-card ul {
+  margin: 0.5rem 0;
+  padding-left: 1.1rem;
+}
+
+.booking-party,
+.fallback-boundary,
+.day-notes p,
+.site-footer p {
+  color: var(--muted);
+}
+
+.day-notes {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.day-notes h3 {
+  margin: 0 0 0.5rem;
+}
+
+.day-notes ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.site-footer {
+  padding: 1.5rem 0 2.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+caption {
+  text-align: left;
+  margin-bottom: 0.75rem;
+  color: var(--muted);
+}
+
+th,
+td {
+  border: 1px solid var(--line);
+  padding: 0.55rem 0.65rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+code {
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+  font-size: 0.9em;
+}
+
+.noscript-days {
+  margin-top: 1rem;
+}
+
+@media (min-width: 720px) {
+  .site-header {
+    grid-template-columns: 1fr auto;
+    align-items: end;
+  }
+
+  .day-tabs {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+  }
+
+  .day-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .step-card {
+    grid-template-columns: minmax(12rem, 38%) 1fr;
+    align-items: start;
+  }
+
+  .booking-list,
+  .fallback-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media print {
+  :root {
+    --bg: #fff;
+    --surface: #fff;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  .skip-link,
+  .site-nav,
+  .header-actions,
+  .day-tabs,
+  .step-links,
+  .site-footer {
+    display: none !important;
+  }
+
+  .site-header,
+  .site-nav,
+  main,
+  .site-footer {
+    width: 100%;
+    margin: 0;
+  }
+
+  .day-panel[hidden] {
+    display: block !important;
+  }
+
+  .panel,
+  .day-header,
+  .step-card,
+  .booking-card,
+  .task-card,
+  .fallback-card,
+  .day-notes,
+  .roadbook a {
+    break-inside: avoid;
+    border-color: #999;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    max-height: 8rem;
+  }
+}

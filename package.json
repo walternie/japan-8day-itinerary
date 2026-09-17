@@ -1,0 +1,11 @@
+{
+  "name": "jp2609-itinerary-data",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "images": "node scripts/fetch-loremflickr-images.mjs",
+    "rename-images": "node scripts/rename-itinerary-images.mjs",
+    "sync-images": "node scripts/sync-local-images.mjs",
+    "test": "node --test"
+  }
+}

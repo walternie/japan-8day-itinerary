@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="日本关西与富士山 8 日旅行路书：9月26日至10月3日，含逐日行程、已预约事项、待办与应急预案。"
+    />
+    <meta name="theme-color" content="#1f3a2e" />
+    <title>日本关西与富士山 8 日路书</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到主要内容</a>
+
+    <header class="site-header">
+      <div class="site-brand">
+        <p class="eyebrow">JP2609</p>
+        <h1>日本关西与富士山 8 日路书</h1>
+        <p class="lede">
+          旅行日期：<time datetime="2026-09-26">2026-09-26</time>
+          –
+          <time datetime="2026-10-03">2026-10-03</time>
+          。手机优先的静态行程页，含 D1–D8、已预约、待办理与应急预案。
+        </p>
+      </div>
+      <div class="header-actions">
+        <button type="button" id="share-button" class="button">分享</button>
+        <p id="share-status" class="share-status" role="status" aria-live="polite"></p>
+      </div>
+    </header>
+
+    <nav class="site-nav" aria-label="页面分区">
+      <a href="#itinerary">逐日行程</a>
+      <a href="#bookings">已预约</a>
+      <a href="#pending">待办理</a>
+      <a href="#fallbacks">应急预案</a>
+      <a href="credits.html">图片署名</a>
+    </nav>
+
+    <main id="main">
+      <section id="itinerary" class="panel" aria-labelledby="itinerary-title">
+        <header class="panel-header">
+          <h2 id="itinerary-title">逐日行程</h2>
+          <p>按 D1–D8 切换查看当日摘要、编号路书与完整步骤。</p>
+        </header>
+
+        <div
+          id="day-tabs"
+          class="day-tabs"
+          role="group"
+          aria-label="选择旅行日"
+        ></div>
+        <div id="day-panels" class="day-panels"></div>
+
+        <noscript>
+          <div class="noscript-days">
+            <p>
+              当前浏览器未启用 JavaScript。以下仍可查看旅行日期与每日标题摘要；完整步骤、地图入口与交互切换需要启用脚本。
+            </p>
+            <article>
+              <h3>D1 · 9月26日 周六 · 北京 → 羽田 → 横滨</h3>
+              <p>国际航班抵达日，只完成入境、取行李、进城和补给。</p>
+            </article>
+            <article>
+              <h3>D2 · 9月27日 周日 · 河口湖红线经典景点</h3>
+              <p>
+                取消KABA；按“大石公园→缆车→游船”游览河口湖红线，最后往返Mont-bell富士吉田店，搭已购票的17:40河口湖→横滨班次。
+              </p>
+            </article>
+            <article>
+              <h3>D3 · 9月28日 周一 · 伊丹 → 梅田 → 京都第一夜</h3>
+              <p>经梅田完成大阪限定Mont-bell购物，下午入住京都；真正的京都体验从夜晚开始。</p>
+            </article>
+            <article>
+              <h3>D4 · 9月29日 周二 · 南禅寺 → 东山 → 清水寺 → 祇园</h3>
+              <p>以三门、水路阁、传统町家街区和清水舞台串联京都建筑体验；预计17,000–19,000步。</p>
+            </article>
+            <article>
+              <h3>D5 · 9月30日 周三 · 伏见稻荷、宇治与任天堂博物馆</h3>
+              <p>伏见稻荷只到中腹，宇治保留平等院建筑主题，16:30任天堂博物馆不可迟到。</p>
+            </article>
+            <article>
+              <h3>D6 · 10月1日 周四 · 京都限定Mont-bell → 白滨</h3>
+              <p>
+                不再增加京都景点；因已预约11:13新大阪发黑潮9号，必须约10:30离开京都，10:45离开已来不及。
+              </p>
+            </article>
+            <article>
+              <h3>D7 · 10月2日 周五 · 熊野古道精华段</h3>
+              <p>已预约10:12黑潮1号去纪伊胜浦、18:04黑潮36号返回白滨；按“不早于8:00”完成大门坂上行。</p>
+            </article>
+            <article>
+              <h3>D8 · 10月3日 周六 · 白滨 → 关西机场 → 上海</h3>
+              <p>已预约11:20黑潮18号，约13:30到KIX，距离15:55起飞约2小时25分钟。</p>
+            </article>
+          </div>
+        </noscript>
+      </section>
+
+      <section id="bookings" class="panel" aria-labelledby="bookings-title">
+        <header class="panel-header">
+          <h2 id="bookings-title">已预约</h2>
+          <p>已购票、已购买与已预约事项独立列出，便于出发前核对。</p>
+        </header>
+        <div id="confirmed-list" class="booking-list"></div>
+      </section>
+
+      <section id="pending" class="panel" aria-labelledby="pending-title">
+        <header class="panel-header">
+          <h2 id="pending-title">待办理</h2>
+          <p>已过滤已取消、已锁定与已完成项；已购买项目不再提醒。</p>
+        </header>
+        <ul id="pending-list" class="task-list"></ul>
+      </section>
+
+      <section id="fallbacks" class="panel" aria-labelledby="fallbacks-title">
+        <header class="panel-header">
+          <h2 id="fallbacks-title">应急预案</h2>
+          <p>天气、换乘延误或线路风险时的边界与替代动作。</p>
+        </header>
+        <div id="fallback-list" class="fallback-list"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        静态 ES module 站点 · 相对路径，可部署到 GitHub Pages 项目子路径 ·
+        <a href="credits.html">图片署名与来源</a>
+      </p>
+    </footer>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
