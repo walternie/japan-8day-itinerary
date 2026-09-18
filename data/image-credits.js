@@ -1346,7 +1346,7 @@ export const imageCredits = [
   },
   {
     "stepId": "d8-b4f5f9d4",
-    "localFile": "assets/images/D8-08-00–09-20-早餐与整理行李.jpg",
+    "localFile": "assets/images/D8-08-00–09-20-早餐与整理行李.png",
     "title": "Flickr #28432923523 — 早餐与整理行李",
     "creator": "nakashi",
     "license": "CC BY-SA 2.0",
