@@ -520,7 +520,7 @@ export const imageCredits = [
   },
   {
     "stepId": "d3-66918d14",
-    "localFile": "assets/images/D3-17-15–18-00-锦市场.jpg",
+    "localFile": "assets/images/D3-17-15–18-00-锦市场.png",
     "title": "Flickr #49252536857 — 锦市场",
     "creator": "Dick Thomas Johnson",
     "license": "CC BY 2.0",
@@ -562,7 +562,7 @@ export const imageCredits = [
   },
   {
     "stepId": "d3-acc85017",
-    "localFile": "assets/images/D3-20-00–21-40-京都第一夜散步.jpg",
+    "localFile": "assets/images/D3-20-00–21-40-京都第一夜散步.png",
     "title": "Flickr #54229641087 — 京都第一夜散步",
     "creator": "pom'.",
     "license": "CC BY-SA 2.0",
@@ -576,7 +576,7 @@ export const imageCredits = [
   },
   {
     "stepId": "d3-f9046c21",
-    "localFile": "assets/images/D3-21-40–22-00-返回酒店.jpg",
+    "localFile": "assets/images/D3-21-40–22-00-返回酒店.png",
     "title": "Flickr #54565678330 — 返回酒店",
     "creator": "Dick Thomas Johnson",
     "license": "CC BY 2.0",
@@ -604,7 +604,7 @@ export const imageCredits = [
   },
   {
     "stepId": "d4-dc570106",
-    "localFile": "assets/images/D4-09-00–09-25-京都站→蹴上站.jpg",
+    "localFile": "assets/images/D4-09-00–09-25-京都站→蹴上站.png",
     "title": "Flickr #50910225678 — 京都站→蹴上站",
     "creator": "Dick Thomas Johnson",
     "license": "CC BY 2.0",
@@ -618,7 +618,7 @@ export const imageCredits = [
   },
   {
     "stepId": "d4-f903e00c",
-    "localFile": "assets/images/D4-09-25–10-30-南禅寺.jpg",
+    "localFile": "assets/images/D4-09-25–10-30-南禅寺.png",
     "title": "Flickr #54438881727 — 南禅寺",
     "creator": "Sergiy Galyonkin",
     "license": "CC BY-SA 2.0",
@@ -786,7 +786,7 @@ export const imageCredits = [
   },
   {
     "stepId": "d4-aa656e68",
-    "localFile": "assets/images/D4-21-40–22-00-鸭川后返回酒店.jpg",
+    "localFile": "assets/images/D4-21-40–22-00-鸭川后返回酒店.png",
     "title": "Flickr #48929544582 — 鸭川后返回酒店",
     "creator": "dconvertini",
     "license": "CC BY-SA 2.0",
@@ -814,7 +814,7 @@ export const imageCredits = [
   },
   {
     "stepId": "d5-f6345529",
-    "localFile": "assets/images/D5-09-00–09-20-京都→JR稻荷站.jpg",
+    "localFile": "assets/images/D5-09-00–09-20-京都→JR稻荷站.png",
     "title": "Flickr #54340706984 — 京都→JR稻荷站",
     "creator": "Sergiy Galyonkin",
     "license": "CC BY-SA 2.0",
@@ -940,7 +940,7 @@ export const imageCredits = [
   },
   {
     "stepId": "d5-32df7817",
-    "localFile": "assets/images/D5-16-30–18-30-19-00-Nintendo Museum.jpg",
+    "localFile": "assets/images/D5-16-30–18-30-19-00-Nintendo Museum.png",
     "title": "Flickr #54467274866 — Nintendo Museum",
     "creator": "Sergiy Galyonkin",
     "license": "CC BY-SA 2.0",
@@ -968,7 +968,7 @@ export const imageCredits = [
   },
   {
     "stepId": "d6-faa8fa01",
-    "localFile": "assets/images/D6-08-30–09-15-早餐与收拾.jpg",
+    "localFile": "assets/images/D6-08-30–09-15-早餐与收拾.png",
     "title": "Flickr #54165667902 — 早餐与收拾",
     "creator": "pom'.",
     "license": "CC BY-SA 2.0",
@@ -982,7 +982,7 @@ export const imageCredits = [
   },
   {
     "stepId": "d6-511826b1",
-    "localFile": "assets/images/D6-09-15–09-35-退房并寄存行李.jpg",
+    "localFile": "assets/images/D6-09-15–09-35-退房并寄存行李.png",
     "title": "Flickr #28764185710 — 退房并寄存行李",
     "creator": "nakashi",
     "license": "CC BY-SA 2.0",
@@ -1024,7 +1024,7 @@ export const imageCredits = [
   },
   {
     "stepId": "d6-21349a54",
-    "localFile": "assets/images/D6-10-15–10-30-回酒店取行李.jpg",
+    "localFile": "assets/images/D6-10-15–10-30-回酒店取行李.png",
     "title": "Flickr #28762408290 — 回酒店取行李",
     "creator": "nakashi",
     "license": "CC BY-SA 2.0",
@@ -1094,7 +1094,7 @@ export const imageCredits = [
   },
   {
     "stepId": "d6-1f0e488c",
-    "localFile": "assets/images/D6-14-40–15-40-三段壁.jpg",
+    "localFile": "assets/images/D6-14-40–15-40-三段壁.jpeg",
     "title": "Flickr #28969227111 — 三段壁",
     "creator": "nakashi",
     "license": "CC BY-SA 2.0",
