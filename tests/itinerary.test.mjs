@@ -340,7 +340,7 @@ test("exports only the eleven confirmed bookings with exact purchased facts", ()
   const pendingBookingTitles = bookingRows
     .filter(
       ([status, title]) =>
-        !["已取消", "已锁定", "已完成"].includes(status) &&
+        !["已取消", "已锁定", "已完成", "已核对"].includes(status) &&
         (title === "D7黑潮往返" || title === "D8黑潮号"),
     )
     .map((row) => row[1]);
