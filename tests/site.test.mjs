@@ -51,7 +51,7 @@ test("hides maps for generic travel steps and shows them for real places", () =>
 
   for (const title of [
     "清水寺",
-    "大石公园",
+    "富士急乐园",
     "Nintendo Museum",
     "南禅寺",
     "炭櫓鳗鱼晚餐",
@@ -105,12 +105,12 @@ test("directions use the complete previous step including map override", () => {
   assert.doesNotMatch(renderStep(destination, disabledOrigin), /从上一地点导航/);
 });
 
-test("renders all 105 steps with required broad map classifications", () => {
+test("renders all 101 steps with required broad map classifications", () => {
   const allSteps = days.flatMap(({ steps }) => steps);
-  assert.equal(allSteps.length, 105);
+  assert.equal(allSteps.length, 101);
 
   for (const title of [
-    "大石公园",
+    "富士急乐园",
     "清水寺",
     "Nintendo Museum",
     "步行至Mont-bell京都駅前店",
@@ -137,15 +137,15 @@ test("renders all 105 steps with required broad map classifications", () => {
 
   assert.ok(allSteps.every((step) => typeof shouldShowMap(step) === "boolean"));
   const rendered = days.map((day) => renderDay(day)).join("");
-  assert.equal((rendered.match(/class="step-card"/g) ?? []).length, 105);
+  assert.equal((rendered.match(/class="step-card"/g) ?? []).length, 101);
 });
 
 test("provides one unique expected image path for every step", () => {
   const steps = days.flatMap(({ steps }) => steps);
   const paths = steps.map(getStepImagePath);
 
-  assert.equal(paths.length, 105);
-  assert.equal(new Set(paths).size, 105);
+  assert.equal(paths.length, 101);
+  assert.equal(new Set(paths).size, 101);
   for (let index = 0; index < steps.length; index += 1) {
     const filename = getStepImageFilename(steps[index]);
     assert.equal(paths[index], `assets/images/${filename}`);

@@ -15,7 +15,7 @@ const day = (id) => days.find((entry) => entry.id === id);
 const allText = () =>
   JSON.stringify({ days, bookingRows, fallbackRows, flightSummary, hotelSummary });
 
-test("contains complete D1-D8 itinerary with 105 stable, enriched steps", () => {
+test("contains complete D1-D8 itinerary with 101 stable, enriched steps", () => {
   assert.deepEqual(days.map(({ id }) => id), [
     "D1",
     "D2",
@@ -28,8 +28,8 @@ test("contains complete D1-D8 itinerary with 105 stable, enriched steps", () => 
   ]);
 
   const steps = days.flatMap(({ steps }) => steps);
-  assert.equal(steps.length, 105);
-  assert.equal(new Set(steps.map(({ id }) => id)).size, 105);
+  assert.equal(steps.length, 101);
+  assert.equal(new Set(steps.map(({ id }) => id)).size, 101);
   for (const { id: dayId, steps: daySteps } of days) {
     for (const step of daySteps) {
       assert.match(step.id, /^d[1-8]-[a-f0-9]{8}$/);

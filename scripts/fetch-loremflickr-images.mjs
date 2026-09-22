@@ -54,8 +54,12 @@ const STEP_TAG_RULES = [
   [/机场|羽田|伊丹|关西|值机|安检|登机|入境/u, "airport,terminal"],
   [/早餐|午餐|晚餐|便当|补给|鳗鱼|和牛|抹茶|海鲜/u, "japanese,food"],
   [/黑潮|JR|京急|铁路|列车|车站|换乘/u, "japan,train"],
-  [/巴士|公交/u, "japan,bus"],
-  [/富士|河口湖|大石/u, "mountfuji,kawaguchiko"],
+  [/巴士|公交|高速巴士/u, "japan,bus"],
+  [/罗森|Lawson|便利店|纪念品/u, "japan,convenience,store"],
+  [/看天|决策/u, "mountfuji,clouds"],
+  [/富士急乐园|ハイランド/u, "amusement,park,japan"],
+  [/大石公园/u, "kawaguchiko,oishi"],
+  [/富士|河口湖|山中湖/u, "mountfuji,kawaguchiko"],
   [/缆车/u, "japan,ropeway"],
   [/游览船|湖畔|船津浜/u, "japan,lake"],
   [/Mont-bell|购物|市场/u, "japan,shopping"],
@@ -74,8 +78,10 @@ const steps = days.flatMap((day) =>
   day.steps.map((step, index) => ({ ...step, dayId: day.id, dayIndex: index })),
 );
 
-if (steps.length !== 105) {
-  throw new Error(`Expected 105 steps, found ${steps.length}`);
+const forceDay = process.argv.find((arg) => arg.startsWith("--day="))?.slice(6)?.toUpperCase();
+
+if (steps.length !== 101) {
+  throw new Error(`Expected 101 steps, found ${steps.length}`);
 }
 
 const sleep = (milliseconds) =>
@@ -144,13 +150,18 @@ async function getCandidate(step, attempt) {
     headers: { Accept: "application/json" },
   });
   const data = await response.json();
-  const license = LICENSES[clean(data.license).toLowerCase()];
+  // Prefer keyword/visual match over license gating; user replaces mismatches locally.
+  const licenseKey = clean(data.license).toLowerCase();
+  const license = LICENSES[licenseKey] ?? {
+    name: "LoremFlickr keyword match (unverified license)",
+    url: "https://loremflickr.com/",
+  };
   const fileUrl = clean(data.file);
   const rawFileUrl = clean(data.rawFileUrl);
-  const creator = clean(data.owner);
-  const photoId = photoIdFromUrl(rawFileUrl || fileUrl);
+  const creator = clean(data.owner) || "unknown";
+  const photoId = photoIdFromUrl(rawFileUrl || fileUrl) || `lock-${lock}`;
 
-  if (!license || !creator || !photoId || !/^https:\/\//u.test(fileUrl)) return null;
+  if (!fileUrl || !/^https:\/\//u.test(fileUrl)) return null;
 
   return {
     creator,
@@ -225,7 +236,7 @@ async function writeState(credits, failures) {
   const byStep = new Map(credits.map((credit) => [credit.stepId, credit]));
   const ordered = steps.map((step) => byStep.get(step.id)).filter(Boolean);
   const source =
-    "// Generated from Flickr Creative Commons metadata returned by LoremFlickr.\n" +
+    "// Generated for visual keyword match via LoremFlickr; license may be unverified.\n" +
     `export const imageCredits = ${JSON.stringify(ordered, null, 2)};\n`;
   await Promise.all([
     writeFile(creditsPath, source, "utf8"),
@@ -258,18 +269,15 @@ async function main() {
   const usedHashes = new Set();
 
   for (const step of steps) {
+    if (forceDay && step.dayId === forceDay) continue;
     const credit = existing.find(({ stepId }) => stepId === step.id);
     const destination = resolve(imageDirectory, getStepImageFilename(step));
     if (!completeCredit(credit)) continue;
     try {
       const info = await stat(destination);
       const hash = await fileHash(destination);
-      if (
-        info.size > 0 &&
-        hash === credit.sha256 &&
-        !usedPhotoIds.has(credit.photoId) &&
-        !usedHashes.has(hash)
-      ) {
+      // Allow intentional duplicate images across steps; only block duplicate photoIds.
+      if (info.size > 0 && hash === credit.sha256 && !usedPhotoIds.has(credit.photoId)) {
         credits.push(credit);
         usedPhotoIds.add(credit.photoId);
         usedHashes.add(hash);
@@ -281,9 +289,10 @@ async function main() {
 
   let completedSinceWrite = 0;
   let writeQueue = Promise.resolve();
-  const pending = steps.filter(
-    (step) => !credits.some(({ stepId }) => stepId === step.id),
-  );
+  const pending = steps.filter((step) => {
+    if (forceDay && step.dayId !== forceDay) return false;
+    return !credits.some(({ stepId }) => stepId === step.id);
+  });
 
   await runPool(pending, async (step) => {
     const filename = getStepImageFilename(step);
@@ -330,7 +339,7 @@ async function main() {
       failures.push({
         stepId: step.id,
         title: step.title,
-        error: lastError?.message ?? "No acceptable unique CC image found",
+        error: lastError?.message ?? "No acceptable unique keyword-matched image found",
       });
       console.error(`FAILED ${step.id}: ${failures.at(-1).error}`);
     }

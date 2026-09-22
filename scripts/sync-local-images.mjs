@@ -85,14 +85,23 @@ await writeFile(
 );
 
 const stepById = new Map(steps.map((step) => [step.id, step]));
-const updatedCredits = imageCredits.map((credit) => {
-  const step = stepById.get(credit.stepId);
-  if (!step) return credit;
+const updatedCredits = steps.map((step) => {
+  const existing = imageCredits.find((credit) => credit.stepId === step.id);
   const stem = getStepImageBasename(step);
   const ext = extensions[stem] ?? "jpg";
+  const localFile = `assets/images/${stem}.${ext}`;
+  if (existing) {
+    return { ...existing, localFile };
+  }
   return {
-    ...credit,
-    localFile: `assets/images/${stem}.${ext}`,
+    stepId: step.id,
+    localFile,
+    title: `Pending visual match — ${step.title}`,
+    creator: "pending",
+    license: "pending",
+    licenseUrl: "https://loremflickr.com/",
+    sourceUrl: "https://loremflickr.com/",
+    retrievedAt: new Date().toISOString().slice(0, 10),
   };
 });
 

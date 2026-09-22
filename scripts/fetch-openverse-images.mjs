@@ -119,7 +119,7 @@ const steps = days.flatMap((day) =>
   day.steps.map((step) => ({ ...step, dayId: day.id })),
 );
 
-if (steps.length !== 105) throw new Error(`Expected 105 steps, found ${steps.length}`);
+if (steps.length !== 101) throw new Error(`Expected 101 steps, found ${steps.length}`);
 for (const day of days) {
   const queryCount = QUERIES_BY_DAY[day.id]?.length ?? 0;
   if (queryCount < 3 || queryCount > 6) {
