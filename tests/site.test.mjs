@@ -187,7 +187,7 @@ test("pending booking filter excludes cancelled, locked, completed, and verified
   const text = JSON.stringify(pending);
 
   assert.equal(pending.length, 3);
-  assert.doesNotMatch(text, /D2往返高速巴士|关西广域周游券|D6黑潮9号|D7黑潮往返|D8黑潮号|D3鳗鱼|D4和牛|D2山中湖KABA|D2本地公交/);
+  assert.doesNotMatch(text, /D2往返高速巴士|关西广域周游券|D6黑潮9号|D7黑潮往返|D8黑潮号|D3午餐|D3鳗鱼|D4和牛|D2山中湖KABA|D2本地公交/);
   assert.ok(pending.every(([status]) => !["已取消", "已锁定", "已完成", "已核对"].includes(status)));
 });
 

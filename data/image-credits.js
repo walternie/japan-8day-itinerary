@@ -359,9 +359,9 @@ export const imageCredits = [
     "sha256": "ae8f93c040f6fada546cf570e28ad5c71aaac735f25202f3fad2387fbfa314ff"
   },
   {
-    "stepId": "d3-36f38b29",
-    "localFile": "assets/images/D3-13-25–14-00-梅田简单午餐.jpg",
-    "title": "Flickr #52848206730 — 梅田简单午餐",
+    "stepId": "d3-b1b14d70",
+    "localFile": "assets/images/D3-13-25–14-00-BINDU 印度料理午餐.jpg",
+    "title": "Flickr #52848206730 — BINDU 印度料理午餐",
     "creator": "Sergiy Galyonkin",
     "license": "CC BY-SA 2.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",

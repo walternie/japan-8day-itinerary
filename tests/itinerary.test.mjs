@@ -177,6 +177,17 @@ test("preserves D8 reserved Kuroshio 18 facts", () => {
   assert.match(hineno.detail, /6号车1C、1D/);
 });
 
+test("preserves D3 walk-in BINDU lunch facts", () => {
+  const lunch = day("D3").steps.find(({ title }) => title === "BINDU 印度料理午餐");
+
+  assert.equal(lunch.time, "13:25–14:00");
+  assert.match(lunch.detail, /グランフロント/);
+  assert.match(lunch.detail, /无需预约/);
+  assert.match(lunch.detail, /チーズナン/);
+  assert.equal(lunch.mapEnabled, true);
+  assert.match(lunch.mapQuery, /BINDU/);
+});
+
 test("preserves D3 walk-in Sumiyagura dinner facts", () => {
   const dinner = day("D3").steps.find(({ title }) => title === "炭櫓鳗鱼晚餐");
   const walk = day("D3").steps.find(({ title }) => title === "步行至河原町炭櫓");
